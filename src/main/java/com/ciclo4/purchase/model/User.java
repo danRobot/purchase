@@ -13,13 +13,13 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "user")
+@Document(collection = "users")
 public class User implements Serializable{
 
     @Id
     private ObjectId _id;
 
-    private Integer id;// (PK)AUTO_INCREMENTint(11) Not null.
+    //private Integer id;// (PK)AUTO_INCREMENTint(11) Not null.
 
     private String email;// (Unique Index)varchar(50) Not null.
 
@@ -29,17 +29,17 @@ public class User implements Serializable{
 
     /**
      * @return the id
-     */
+     *
     public Integer getId() {
         return id;
-    }
+    }*/
 
     /**
      * @param id the id to set
-     */
+     *
     public void setId(Integer id) {
         this.id = id;
-    }
+    }*/
 
     /**
      * @return the email
