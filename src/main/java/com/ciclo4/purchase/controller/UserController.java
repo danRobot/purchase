@@ -70,14 +70,14 @@ public class UserController {
      * @param user
      * @return
      */
-    @PostMapping("/all")
+    @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
     @CrossOrigin
     public Optional<User> save(@RequestBody User user){
         return servicio.insertUser(user);
     }
 
-    @PutMapping("/all")
+    @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public User update(@RequestBody User user){
         return servicio.updateUser(user);
