@@ -54,14 +54,16 @@ public class UserRepository {
         String email= user.getEmail();
         u=repository.getUserByEmail(email);
         if(u.isEmpty()){
-            List<User> all=repository.findAll();
-            int maxId=0;
-            for (User user2 : all) {
-                if(user2.getId()>maxId){
-                    maxId=user2.getId();
+            if (user.getId()==null) {
+                List<User> all=repository.findAll();
+                int maxId=0;
+                for (User user2 : all) {
+                    if(user2.getId()>maxId){
+                        maxId=user2.getId();
+                    }
                 }
+                user.setId(maxId+1);
             }
-            user.setId(maxId+1);
             return Optional.of(repository.insert(user));
         }else{
             return Optional.empty();

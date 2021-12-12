@@ -59,14 +59,6 @@ public class UserService {
         return repositorio.checkUser(email, password);
     }
     /**
-     * Añade nuevo uauario
-     * @param user
-     * @return
-     */
-    public boolean newUser(User user){
-        return repositorio.putUser(user);
-    }
-    /**
      * Actualiza Usuario
      * @param user
      * @return
