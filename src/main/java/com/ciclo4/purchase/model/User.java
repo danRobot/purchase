@@ -2,7 +2,7 @@ package com.ciclo4.purchase.model;
 
 import java.io.Serializable;
 
-import org.bson.types.ObjectId;
+//import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -18,8 +18,8 @@ public class User implements Serializable{
 
     /*@Id
     private ObjectId _id;*/
-
-    //private Integer id;// (PK)AUTO_INCREMENTint(11) Not null.
+    @Id
+    private Integer id;// (PK)AUTO_INCREMENTint(11) Not null.
 
     private String email;// (Unique Index)varchar(50) Not null.
 
@@ -29,17 +29,17 @@ public class User implements Serializable{
 
     /**
      * @return the id
-     *
+     */
     public Integer getId() {
         return id;
-    }*/
+    }
 
     /**
      * @param id the id to set
-     *
+     */
     public void setId(Integer id) {
         this.id = id;
-    }*/
+    }
 
     /**
      * @return the email

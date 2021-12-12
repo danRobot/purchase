@@ -46,14 +46,29 @@ public class UserController {
         return servicio.getUserById(id);
     }*/
     @GetMapping("/{email}")
-    public Optional<User> getUser(@PathVariable String email){
-        return servicio.getUserByEmail(email);
+    public boolean getUser(@PathVariable String email){
+        System.out.println(servicio.getUserByEmail(email));
+        if(servicio.getUserByEmail(email).isEmpty()){
+            return false;
+        }else{
+            return true;
+        }
     }
     @GetMapping("/{user_email}/{user_password}")
-    public Optional<User> getAuth(@PathVariable String user_email,@PathVariable String user_password){
+    public User getAuth(@PathVariable String user_email,@PathVariable String user_password){
         Optional<User> check=servicio.checkAuth(user_email,user_password);
+        User user;
+        try {
+            user=check.get();
+        } catch (Exception e) {
+            user=new User();
+            user.setEmail(user_email);
+            user.setPassword(user_password);
+            user.setName("NO DEFINIDO");
+            user.setId(null);
+        }
         System.out.println(check);
-        return check;
+        return user;
         
     }
     /**

@@ -32,6 +32,14 @@ public class UserService {
         String email= user.getEmail();
         u=repositorio.getUserByEmail(email);
         if(u.isEmpty()){
+            List<User> all=repositorio.findAll();
+            int maxId=0;
+            for (User user2 : all) {
+                if(user2.getId()>maxId){
+                    maxId=user2.getId();
+                }
+            }
+            user.setId(maxId+1);
             return Optional.of(repositorio.save(user));
         }else{
             return Optional.empty();
