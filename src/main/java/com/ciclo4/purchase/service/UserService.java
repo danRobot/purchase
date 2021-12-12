@@ -63,7 +63,7 @@ public class UserService {
      * @param user
      * @return
      */
-    public boolean updateUser(User user){
+    public User updateUser(User user){
         return repositorio.putUser(user);
     }
     public void deleteUser(Integer id) {

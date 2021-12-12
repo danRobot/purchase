@@ -74,17 +74,17 @@ public class UserRepository {
      * @param user
      * @return
      */
-    public boolean putUser(User user) {
+    public User putUser(User user) {
         String id=user.getIdentification();
         long users=checkExistence("identification", id);
         if (users>0) {
             Integer newId=repository.getUserByidentification(id).get().getId();
             user.setId(newId);
             repository.save(user);
-            user=null;
-            return true;
+            //user=null;
+            return user;
         } else {
-            return false;
+            return new User();
         }
     }
     /**

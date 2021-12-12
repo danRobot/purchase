@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -35,6 +36,11 @@ public class ClothesRepository {
         query.addCriteria(Criteria.where(key).is(property));
         return mongoTemplate.count(query, COLLECTION);
     }
+    private Clothes getBykey(String key,String property) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where(key).is(property));
+        return mongoTemplate.findOne(query, Clothes.class);
+    }
     /**
      * Operacion POST
      * @param clothes
@@ -56,15 +62,33 @@ public class ClothesRepository {
      * @param clothes
      * @return
      */
-    public boolean putClothes(Clothes clothes) {
+    public Clothes putClothes(Clothes clothes) {
         String id=clothes.getReference();
-        long users=checkExistence("reference", id);
+        long users=checkExistence("_id", id);
         if (users>0) {
-            repository.save(clothes);
-            clothes=null;
-            return true;
+            System.out.println(clothes.toString());
+            Clothes old=getBykey("_id",id);
+            if(clothes.getCategory()==null){
+                clothes.setCategory(old.getCategory());
+            }
+            if(clothes.getDescription()==null){
+                clothes.setDescription(old.getDescription());
+            }
+            if(clothes.getPhotography()==null){
+                clothes.setPhotography(old.getPhotography());
+            }
+            if(clothes.getPrice()==null){
+                clothes.setPrice(old.getPrice());
+            }
+            if(clothes.getQuantity()==null){
+                clothes.setQuantity(old.getQuantity());
+            }
+            if(clothes.getSize()==null){
+                clothes.setSize(old.getSize());
+            }
+            return repository.save(clothes);
         } else {
-            return false;
+            return new Clothes();
         }
     }
     /**

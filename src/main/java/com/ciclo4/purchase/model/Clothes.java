@@ -24,9 +24,9 @@ public class Clothes {
 
     private boolean availability = true;
 
-    private double price;
+    private Double price;
 
-    private int quantity;
+    private Integer quantity;
 
     private String photography;
 }

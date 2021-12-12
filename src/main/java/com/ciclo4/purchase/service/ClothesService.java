@@ -45,7 +45,7 @@ public class ClothesService {
      * @param user
      * @return
      */
-    public boolean updateUser(Clothes user){
+    public Clothes updateUser(Clothes user){
         return repositorio.putClothes(user);
     }
     public void deleteUser(String reference) {

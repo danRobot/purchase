@@ -40,16 +40,16 @@ public class ClothesController {
         return servicio.listAllClothes();
     }
 
-    @PostMapping("/new")
+    @PostMapping("/all")
     @ResponseStatus(HttpStatus.CREATED)
     @CrossOrigin
     public Optional<Clothes> save(@RequestBody Clothes user){
         return servicio.insertClothe(user);
     }
 
-    @PutMapping("/update")
+    @PutMapping("/all")
     @ResponseStatus(HttpStatus.CREATED)
-    public boolean update(@RequestBody Clothes user){
+    public Clothes update(@RequestBody Clothes user){
         return servicio.updateUser(user);
     }
     @DeleteMapping("/{id}")
