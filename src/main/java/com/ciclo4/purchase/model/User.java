@@ -1,6 +1,7 @@
 package com.ciclo4.purchase.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 //import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -21,66 +22,23 @@ public class User implements Serializable{
     @Id
     private Integer id;// (PK)AUTO_INCREMENTint(11) Not null.
 
-    private String email;// (Unique Index)varchar(50) Not null.
+    private String identification;
 
-    private String password;//varchar(50) Not null.
-    
-    private String name;//varchar(80) Not null.
+    private String name;
 
-    /**
-     * @return the id
-     */
-    public Integer getId() {
-        return id;
-    }
+    private Date birthtDay;
 
-    /**
-     * @param id the id to set
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    private String monthBirthtDay;
 
-    /**
-     * @return the email
-     */
-    public String getEmail() {
-        return email;
-    }
+    private String address;
 
-    /**
-     * @param email the email to set
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    private String cellPhone;
 
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
+    private String email;
 
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
+    private String password;
 
-    /**
-     * @return the password
-     */
-    public String getPassword() {
-        return password;
-    }
+    private String zone;
 
-    /**
-     * @param password the password to set
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
+    private String type;
 }
