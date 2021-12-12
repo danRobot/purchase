@@ -66,7 +66,6 @@ public class ClothesRepository {
         String id=clothes.getReference();
         long users=checkExistence("_id", id);
         if (users>0) {
-            System.out.println(clothes.toString());
             Clothes old=getBykey("_id",id);
             if(clothes.getCategory()==null){
                 clothes.setCategory(old.getCategory());
