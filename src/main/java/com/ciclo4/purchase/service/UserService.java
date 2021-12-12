@@ -27,8 +27,15 @@ public class UserService {
      * @param user
      * @return
      */
-    public User saveUser(User user){
-        return repositorio.save(user);
+    public Optional<User> saveUser(User user){
+        Optional<User> u=null;
+        String email= user.getEmail();
+        u=repositorio.getUserByEmail(email);
+        if(u.isEmpty()){
+            return Optional.of(repositorio.save(user));
+        }else{
+            return Optional.empty();
+        }
     }
 
     /**

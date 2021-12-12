@@ -7,6 +7,7 @@ import com.ciclo4.purchase.model.User;
 import com.ciclo4.purchase.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import org.springframework.http.HttpStatus;
 
 @RestController
 @RequestMapping("/api/user")
+@CrossOrigin
 public class UserController {
     
     @Autowired
@@ -66,7 +68,8 @@ public class UserController {
      */
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
-    public User save(@RequestBody User user){
+    @CrossOrigin
+    public Optional<User> save(@RequestBody User user){
         return servicio.saveUser(user);
     }
 
