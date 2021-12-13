@@ -40,6 +40,14 @@ public class OrdersController {
         return servicio.listAllOrders();
     }
 
+    @GetMapping("/{id}")
+    public Optional<Orders> getOrder(@PathVariable Integer id){
+        return servicio.getOrderById(id);
+    }
+    @GetMapping("/zona/{zona}")
+    public List<Orders> getOrderbyZone(@PathVariable String zona){
+        return servicio.getOrderByZone(zona);
+    }
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
     @CrossOrigin

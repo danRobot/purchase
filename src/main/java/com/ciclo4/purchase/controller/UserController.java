@@ -43,10 +43,10 @@ public class UserController {
         return servicio.listAllUsers();
     }
 
-    /*@GetMapping("/{id}")
+    @GetMapping("/{id}")
     public Optional<User> getUser(@PathVariable Integer id){
         return servicio.getUserById(id);
-    }*/
+    }
     @GetMapping("emailexist/{email}")
     public boolean getUser(@PathVariable String email){
         System.out.println(servicio.getUserByEmail(email));

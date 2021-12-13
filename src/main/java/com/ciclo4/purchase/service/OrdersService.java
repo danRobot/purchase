@@ -39,7 +39,9 @@ public class OrdersService {
     public Optional<Orders> getOrderById(Integer reference){
         return repositorio.getClothe(reference);
     }
-
+    public List<Orders> getOrderByZone(String zona){
+        return repositorio.getOrdersByZone(zona);
+    }
     /**
      * Actualiza Usuario
      * @param order

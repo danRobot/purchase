@@ -31,6 +31,10 @@ public class UserService {
         return repositorio.postUser(user);
     }
 
+    public Optional<User> getUserById(Integer id){
+        return repositorio.getUserbyId(id);
+    }
+
     /**
      * Busca un usuario por el Correo
      * @param email

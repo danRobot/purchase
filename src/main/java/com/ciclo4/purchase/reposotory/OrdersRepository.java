@@ -7,18 +7,18 @@ import com.ciclo4.purchase.model.Orders;
 import com.ciclo4.purchase.reposotory.CRUD.OrdersCRUDRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
+//import org.springframework.data.mongodb.core.MongoTemplate;
+//import org.springframework.data.mongodb.core.query.Criteria;
+//import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class OrdersRepository {
-    private static final String COLLECTION = "orders";
+    //private static final String COLLECTION = "orders";
     @Autowired
     private OrdersCRUDRepository repository;
-    @Autowired
-    private MongoTemplate mongoTemplate;
+    /*@Autowired
+    private MongoTemplate mongoTemplate;*/
 
     public List<Orders> listAll() {
         return repository.findAll();
@@ -27,7 +27,7 @@ public class OrdersRepository {
     public Optional<Orders> getClothe(Integer id) {
         return repository.findById(id);
     }
-    private long checkExistence(String key,String property) {
+    /*private long checkExistence(String key,String property) {
         Query query = new Query();
         query.addCriteria(Criteria.where(key).is(property));
         return mongoTemplate.count(query, COLLECTION);
@@ -36,6 +36,9 @@ public class OrdersRepository {
         Query query = new Query();
         query.addCriteria(Criteria.where(key).is(property));
         return mongoTemplate.findOne(query, Orders.class);
+    }*/
+    public List<Orders> getOrdersByZone(String zona){
+        return repository.getOrdersByZone(zona);
     }
     /**
      * Operacion POST

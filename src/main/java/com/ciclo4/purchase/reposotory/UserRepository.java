@@ -28,6 +28,9 @@ public class UserRepository {
     public Optional<User> getUser(String email) {
         return repository.getUserByEmail(email);
     }
+    public Optional<User> getUserbyId(Integer id) {
+        return repository.findById(id);
+    }
     public Optional<User> getUserId(String idf) {
         return repository.getUserByidentification(idf);
     }
