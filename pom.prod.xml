@@ -159,5 +159,15 @@
 			</build>
 		</profile>
 	</profiles>
+	<distributionManagement>
+		<repository>
+			<id>spring-releases</id>
+			<name>Spring Releases</name>
+			<url>file:///home/dan/server/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</distributionManagement>
 
 </project>
