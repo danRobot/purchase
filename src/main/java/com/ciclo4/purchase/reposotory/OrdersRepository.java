@@ -48,9 +48,7 @@ public class OrdersRepository {
         return repository.getOrdersByDateAndSalesman(date, id);
     }
     public List<Orders> getOrdersByStatus(String status,Integer id){
-        List<Orders> lista=repository.getOrdersByStatus(status, id);
-        System.out.println(lista);
-        return lista;
+        return repository.getOrdersByStatus(status, id);
     }
     /**
      * Operacion POST

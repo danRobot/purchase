@@ -1,5 +1,7 @@
 package com.ciclo4.purchase.reposotory;
 
+/*import java.util.ArrayList;
+import java.util.Date;*/
 import java.util.List;
 import java.util.Optional;
 
@@ -33,6 +35,21 @@ public class UserRepository {
     }
     public Optional<User> getUserId(String idf) {
         return repository.getUserByidentification(idf);
+    }
+    public List<User> getUserByMonth(String month){
+        /*int nmo;
+        List<User> allUsers=repository.findAll();
+        List<User> byMonth=new ArrayList<User>();
+        for (User user : allUsers) {
+            nmo=user.month();
+            System.out.println(user.getBirthtDay());
+            System.out.println(nmo);
+            if(nmo==month){
+                byMonth.add(user);
+            }
+        }
+        return byMonth;*/
+        return repository.getUserByMonthBirthDay(month);
     }
     public User checkUser(String email, String password) {
         Optional<User> optional=repository.checkUser(email, password);

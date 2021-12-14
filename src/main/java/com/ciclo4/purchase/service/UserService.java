@@ -43,7 +43,9 @@ public class UserService {
     public Optional<User> getUserByEmail(String email){
         return repositorio.getUser(email);
     }
-    
+    public List<User> getUserByMonth(String month) {
+        return repositorio.getUserByMonth(month);
+    }
     /**
      * Busca un usuario por el Nombre
      * @param name

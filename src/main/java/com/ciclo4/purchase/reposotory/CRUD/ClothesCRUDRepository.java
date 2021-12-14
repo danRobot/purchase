@@ -16,6 +16,8 @@ public interface ClothesCRUDRepository extends MongoRepository<Clothes,Integer>{
      */
     @Query("{reference:?0}")
     Optional<Clothes> getClothesByReference(String reference);
+    @Query("{'description':{$regex:?0,$options:'i'}}")
+    List<Clothes> getClothesByDescription(String description);
     /*
     @Query("{email:?0}")
     Optional<Clothes> getClothesByReference(String email);

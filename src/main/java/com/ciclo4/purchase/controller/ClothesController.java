@@ -40,6 +40,16 @@ public class ClothesController {
         return servicio.listAllClothes();
     }
 
+    @GetMapping("/price/{price}")
+    public List<Clothes> price(@PathVariable Integer price){
+        return servicio.getByPrice(price);
+    }
+
+    @GetMapping("/description/{description}")
+    public List<Clothes> description(@PathVariable String description){
+        return servicio.getbyDescription(description);
+    }
+
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
     @CrossOrigin

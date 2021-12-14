@@ -39,7 +39,12 @@ public class ClothesService {
     public Optional<Clothes> getClothesByEmail(String reference){
         return repositorio.getClothe(reference);
     }
-
+    public List<Clothes> getbyDescription(String description) {
+        return repositorio.getByDescription(description);
+    }
+    public List<Clothes> getByPrice(Integer price){
+        return repositorio.getByPrice("price", price);
+    }
     /**
      * Actualiza Usuario
      * @param user

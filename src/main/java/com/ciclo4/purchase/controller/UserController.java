@@ -56,6 +56,10 @@ public class UserController {
             return true;
         }
     }
+    @GetMapping("/birthday/{month}")
+    public List<User> getMonth(@PathVariable String month){
+        return servicio.getUserByMonth(month);
+    }
     @GetMapping("/{user_email}/{user_password}")
     public User getAuth(@PathVariable String user_email,@PathVariable String user_password){
         return servicio.checkAuth(user_email, user_password);

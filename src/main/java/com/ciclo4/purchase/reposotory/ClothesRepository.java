@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -40,6 +39,14 @@ public class ClothesRepository {
         Query query = new Query();
         query.addCriteria(Criteria.where(key).is(property));
         return mongoTemplate.findOne(query, Clothes.class);
+    }
+    public List<Clothes> getByPrice(String key,Integer price) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where(key).is(price));
+        return mongoTemplate.find(query, Clothes.class);
+    }
+    public List<Clothes> getByDescription(String description){
+        return repository.getClothesByDescription(description);
     }
     /**
      * Operacion POST

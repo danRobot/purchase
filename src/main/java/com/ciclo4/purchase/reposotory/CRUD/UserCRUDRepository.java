@@ -23,4 +23,6 @@ public interface UserCRUDRepository extends MongoRepository<User,Integer>{
     List<User> getUserByName(String name);
     @Query("{identification:?0}")
     Optional<User> getUserByidentification(String idf);
+    @Query("{monthBirthtDay:?0}")
+    List<User> getUserByMonthBirthDay(String month);
 }
