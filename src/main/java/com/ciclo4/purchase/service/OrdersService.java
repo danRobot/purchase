@@ -1,5 +1,6 @@
 package com.ciclo4.purchase.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,6 +42,15 @@ public class OrdersService {
     }
     public List<Orders> getOrderByZone(String zona){
         return repositorio.getOrdersByZone(zona);
+    }
+    public List<Orders> getOrdersBySalesman(Integer id){
+        return repositorio.getOrdersBySalesman(id);
+    }
+    public List<Orders> getOrdersByDate(Date date,Integer id){
+        return repositorio.getOrdersByDate(date, id);
+    }
+    public List<Orders> getOrdersByStatus(String status,Integer id){
+        return repositorio.getOrdersByStatus(status, id);
     }
     /**
      * Actualiza Usuario

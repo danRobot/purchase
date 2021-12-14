@@ -1,5 +1,6 @@
 package com.ciclo4.purchase.reposotory;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,6 +40,17 @@ public class OrdersRepository {
     }*/
     public List<Orders> getOrdersByZone(String zona){
         return repository.getOrdersByZone(zona);
+    }
+    public List<Orders> getOrdersBySalesman(Integer id){
+        return repository.getOrdersBySalesman(id);
+    }
+    public List<Orders> getOrdersByDate(Date date,Integer id){
+        return repository.getOrdersByDateAndSalesman(date, id);
+    }
+    public List<Orders> getOrdersByStatus(String status,Integer id){
+        List<Orders> lista=repository.getOrdersByStatus(status, id);
+        System.out.println(lista);
+        return lista;
     }
     /**
      * Operacion POST

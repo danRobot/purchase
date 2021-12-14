@@ -1,5 +1,6 @@
 package com.ciclo4.purchase.controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -47,6 +48,18 @@ public class OrdersController {
     @GetMapping("/zona/{zona}")
     public List<Orders> getOrderbyZone(@PathVariable String zona){
         return servicio.getOrderByZone(zona);
+    }
+    @GetMapping("/salesman/{id}")
+    public List<Orders> getOrderbySalesman(@PathVariable Integer id){
+        return servicio.getOrdersBySalesman(id);
+    }
+    @GetMapping("/date/{date}/{id}")
+    public List<Orders> getOrderbySalesman(@PathVariable Date date,@PathVariable Integer id){
+        return servicio.getOrdersByDate(date, id);
+    }
+    @GetMapping("/state/{state}/{id}")
+    public List<Orders> getOrderbySalesman(@PathVariable String state,@PathVariable Integer id){
+        return servicio.getOrdersByStatus(state, id);
     }
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)

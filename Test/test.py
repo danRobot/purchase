@@ -14,6 +14,7 @@ def str2ent(string):
 parser = argparse.ArgumentParser(description='Process some integers.')
 parser.add_argument('--host',help='sitio del backend',default="local")
 parser.add_argument('--reto',help='numero del reto',default="3")
+parser.add_argument('--limpiar',help='numero del reto',default="si")
 
 args = parser.parse_args()
 
@@ -54,16 +55,17 @@ for step in(string.ascii_letters[:10]):
         print(result)
     #wait=input("siguiente?")
 
-get=requests.delete(host+'api/user/all')
-print(get.status_code)
-get=requests.delete(host+'api/clothe/all')
-print(get.status_code)
-get=requests.delete(host+'api/order/all')
-print(get.status_code)
+if(args.limpiar=="si"):
+    get=requests.delete(host+'api/user/all')
+    print(get.status_code)
+    get=requests.delete(host+'api/clothe/all')
+    print(get.status_code)
+    get=requests.delete(host+'api/order/all')
+    print(get.status_code)
 
-get=requests.get(host+'api/user/all')
-print(get.content.decode())
-get=requests.get(host+'api/clothe/all')
-print(get.content.decode())
-get=requests.get(host+'api/order/all')
-print(get.content.decode())
+    get=requests.get(host+'api/user/all')
+    print(get.content.decode())
+    get=requests.get(host+'api/clothe/all')
+    print(get.content.decode())
+    get=requests.get(host+'api/order/all')
+    print(get.content.decode())
