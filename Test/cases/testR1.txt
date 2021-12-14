@@ -1,0 +1,2 @@
+{ "email": "elreysol@gmail.com", "password": "Demo123.", "name": "LUIS XIV DE FRANCIA" }
+[{'id': 1, 'email': 'elreysol@gmail.com', 'password': 'Demo123.', 'name': 'LUIS XIV DE FRANCIA'}]

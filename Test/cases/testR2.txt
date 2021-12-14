@@ -1,0 +1,20 @@
+{ "id": 1, "identification": "123123", "name": "CARLOS ALBERTO GARCIA", "address": "CR 34-45", "cellPhone": "311222222", "email": "cgarcia@gmail.com", "password": "Demo123.", "zone": "ZONA 2", "type": "ADM" }
+[{'id': 1, 'identification': '123123', 'name': 'CARLOS ALBERTO GARCIA', 'address': 'CR 34-45', 'cellPhone': '311222222', 'email': 'cgarcia@gmail.com', 'password': 'Demo123.', 'zone': 'ZONA 2', 'type': 'ADM'}]
+
+True
+
+False
+
+{'id': 1, 'identification': '123123', 'name': 'CARLOS ALBERTO GARCIA', 'address': 'CR 34-45', 'cellPhone': '311222222', 'email': 'cgarcia@gmail.com', 'password': 'Demo123.', 'zone': 'ZONA 2', 'type': 'ADM'}
+
+{'id': None, 'identification': None, 'name': None, 'address': None, 'cellPhone': None, 'email': None, 'password': None, 'zone': None, 'type': None}
+{ "id": 1, "identification": "123123", "name": "ALBERTO GARCIA", "address": "CR 90-25", "cellPhone": "2222222", "email": "agarcia@gmail.com", "password": "Agarcia", "zone": "ZONA 1", "type": "ADM" }
+[{'id': 1, 'identification': '123123', 'name': 'ALBERTO GARCIA', 'address': 'CR 90-25', 'cellPhone': '2222222', 'email': 'agarcia@gmail.com', 'password': 'Agarcia', 'zone': 'ZONA 1', 'type': 'ADM'}]
+
+[]
+{ "reference": "AP-903", "category": "TSHIRT", "size": "M", "description": "SPORT TSHIRT", "availability": true, "price": 350000, "quantity": 20, "photography": "www.catalog.com/spiderman.png" }
+[{'reference': 'AP-903', 'category': 'TSHIRT', 'size': 'M', 'description': 'SPORT TSHIRT', 'availability': True, 'price': 350000.0, 'quantity': 20, 'photography': 'www.catalog.com/spiderman.png'}]
+{ "reference": "AP-903", "category": "BELT", "material": "LEATHER", "description": " LEATHER BELT FOR MAN", "availability": true, "price": 350000, "quantity": 20, "photography": "www.catalog.com/belt11.png" }
+[{'reference': 'AP-903', 'category': 'BELT', 'size': 'M', 'description': ' LEATHER BELT FOR MAN', 'availability': True, 'price': 350000.0, 'quantity': 20, 'photography': 'www.catalog.com/belt11.png'}]
+
+[]

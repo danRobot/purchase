@@ -1,0 +1,12 @@
+{
+    "a":{"method":"POST","endpoint":"api/user/new","check":"api/user/all"},
+    "b":{"method":"GET","endpoint":"api/user/emailexist/cgarcia@gmail.com","check":"api/user/all"},
+    "c":{"method":"GET","endpoint":"api/user/emailexist/cgarcial@gmail.com","check":"api/user/all"},
+    "d":{"method":"GET","endpoint":"api/user/cgarcia@gmail.com/Demo123.","check":"api/user/all"},
+    "e":{"method":"GET","endpoint":"api/user/cgarcia@gmail.com/Demo12","check":"api/user/all"},
+    "f":{"method":"PUT","endpoint":"api/user/update","check":"api/user/all"},
+    "g":{"method":"DELETE","endpoint":"api/user/all","check":"api/user/all"},
+    "h":{"method":"POST","endpoint":"api/clothe/new","check":"api/clothe/all"},
+    "i":{"method":"PUT","endpoint":"api/clothe/update","check":"api/clothe/all"},
+    "j":{"method":"DELETE","endpoint":"api/clothe/all","check":"api/clothe/all"}
+}

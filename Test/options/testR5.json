@@ -1,0 +1,9 @@
+{
+    "a":{"method":"POST","endpoint":"api/user/new","check":"api/user/all"},
+    "b":{"method":"POST","endpoint":"api/user/new","check":"api/user/all"},
+    "c":{"method":"POST","endpoint":"api/clothe/new","check":"api/clothe/all"},
+    "d":{"method":"POST","endpoint":"api/clothe/new","check":"api/clothe/all"},
+    "e":{"method":"GET","endpoint":"api/clothe/price/100000","check":"api/clothe/all"},
+    "f":{"method":"GET","endpoint":"api/clothe/description/calidad","check":"api/clothe/all"},
+    "g":{"method":"GET","endpoint":"api/user/birthday/05","check":"api/user/all"}
+}

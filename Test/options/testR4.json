@@ -1,0 +1,12 @@
+{
+    "a":{"method":"POST","endpoint":"api/clothe/new","check":"api/clothe/all"},
+    "b":{"method":"POST","endpoint":"api/user/new","check":"api/user/all"},
+    "c":{"method":"POST","endpoint":"api/user/new","check":"api/user/all"},
+    "d":{"method":"POST","endpoint":"api/clothe/new","check":"api/clothe/all"},
+    "e":{"method":"GET","endpoint":"api/user/3","check":"api/user/all"},
+    "f":{"method":"POST","endpoint":"api/order/new","check":"api/order/all"},
+    "g":{"method":"POST","endpoint":"api/order/new","check":"api/order/all"},
+    "h":{"method":"POST","endpoint":"api/order/new","check":"api/order/all"},
+    "i":{"method":"GET","endpoint":"api/order/salesman/6","check":"api/order/all"},
+    "j":{"method":"GET","endpoint":"api/order/state/Pendiente/6","check":"api/order/all"}
+}

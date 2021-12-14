@@ -1,0 +1,7 @@
+{
+    "a":{"method":"POST","endpoint":"/api/user/new"},
+    "b":{"method":"GET","endpoint":"api/user/elreysol@gmail.com"},
+    "c":{"method":"GET","endpoint":"api/user/reysol@gmail.com"},
+    "d":{"method":"GET","endpoint":"api/user/elreysol@gmail.com/Demo123."},
+    "e":{"method":"GET","endpoint":"api/user/reysol@gmail.com/Demo123."}
+}

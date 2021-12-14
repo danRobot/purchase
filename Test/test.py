@@ -1,82 +1,69 @@
 import requests
-#from requests.api import options
+import json
+import ast
+import argparse
 
-ip={'l':"localhost",'s':'155.248.209.25'}
+def str2ent(string):
+    if(len(string)==1):
+        return ''
+    try:
+        obj=json.loads(string)
+    except:
+        obj=ast.literal_eval(string)
+    return obj
+parser = argparse.ArgumentParser(description='Process some integers.')
+parser.add_argument('--host',help='sitio del backend',default="local")
+parser.add_argument('--reto',help='numero del reto',default="3")
 
-op=input("local?")
+args = parser.parse_args()
 
-if(op=='y'):
-    option='l'
-else:
-    option='s'
+ip={'local':"localhost",'cloud':'155.248.209.25'}
 
-hostUser="http://"+ip[option]+":8080/api/user"
-hostClothe="http://"+ip[option]+":8080/api/clothe"
-get=requests.delete(hostUser+'/all')
+host="http://"+ip[args.host]+":8080/"
+
+
+reto='testR'+args.reto
+cases=open("cases/"+reto+".txt").readlines()
+options=json.load(open("options/"+reto+".json"))
+cases=list(map(str2ent,cases))
+import string
+
+req={"GET":requests.get,"POST":requests.post,"PUT":requests.put,"DELETE":requests.delete}
+
+for step in(string.ascii_letters[:10]):
+    try:
+        method=options[step]['method']
+    except:
+        break
+    endpoint=options[step]['endpoint']
+    check=options[step]['check']
+    send_data=cases.pop(0)
+    expected=cases.pop(0)
+    result=req[method](url=host+endpoint,json=send_data)
+    if(method!="GET"):
+        result=req["GET"](url=host+check)
+    try:
+        result=result.json()
+        if(result==expected):
+            print("TEST PASS")
+        else:
+            print(endpoint)
+            print('DATA',result)
+            print('expected',expected)
+    except:
+        print(result)
+    #wait=input("siguiente?")
+
+get=requests.delete(host+'api/user/all')
 print(get.status_code)
-user1={ "id": 1, "identification": "123123", "name": "CARLOS ALBERTO GARCIA", "address": "CR 34-45", "cellPhone": "311222222", "email": "cgarcia@gmail.com", "password": "Demo123.", "zone": "ZONA 2", "type": "ADM" }
-get=requests.post(hostUser+"/new",json=user1)
-print("TEST POST",get.json()=={'id': 1, 'identification': '123123', 'name': 'CARLOS ALBERTO GARCIA', 'address': 'CR 34-45', 'cellPhone': '311222222', 'email': 'cgarcia@gmail.com', 'password': 'Demo123.', 'zone': 'ZONA 2', 'type': 'ADM'})
-
-
-user1={
-"id": 1,
-"identification": "123123",
-"name": "ALBERTO GARCIA",
-"address": "CR 90-25",
-"cellPhone": "2222222",
-"email": "agarcia@gmail.com",
-"password": "Agarcia",
-"zone": "ZONA 1",
-"type": "ADM"
-}
-get=requests.put(hostUser+"/update",json=user1)
-result=get.json()=={'id': 1, 'identification': '123123', 'name': 'ALBERTO GARCIA', 'address': 'CR 90-25', 'cellPhone': '2222222', 'email': 'agarcia@gmail.com', 'password': 'Agarcia', 'zone': 'ZONA 1', 'type': 'ADM'}
-print("TEST PUT",result)
-if(result==False):
-    print(get.json())
-
-get=requests.delete(hostClothe+'/all')
+get=requests.delete(host+'api/clothe/all')
 print(get.status_code)
-user1={
-"reference": "AP-903",
-"category": "TSHIRT",
-"size": "M",
-"description": "SPORT TSHIRT",
-"availability": True,
-"price": 350000,
-"quantity": 20,
-"photography": "www.catalog.com/spiderman.png"
-}
-get=requests.post(hostClothe+'/new',json=user1)
-result=get.json()=={'reference': 'AP-903', 'category': 'TSHIRT', 'size': 'M', 'description': 'SPORT TSHIRT', 'availability': True, 'price': 350000.0, 'quantity': 20, 'photography': 'www.catalog.com/spiderman.png'}
-print("TEST POST",result)
-if(result==False):
-    print(get.json())
-
-user1={
-"reference": "AP-903",
-"category": "BELT",
-"material": "LEATHER",
-"description": " LEATHER BELT FOR MAN",
-"availability": True,
-"price": 350000,
-"quantity": 20,
-"photography": "www.catalog.com/belt11.png"
-}
-get=requests.put(hostClothe+'/update',json=user1)
-result=get.json()=={'reference': 'AP-903', 'category': 'BELT', 'size': 'M', 'description': ' LEATHER BELT FOR MAN', 'availability': True, 'price': 350000.0, 'quantity': 20, 'photography': 'www.catalog.com/belt11.png'}
-print("TEST PUT",result)
-if(result==False):
-    print(get.json())
-    print({'reference': 'AP-903', 'category': 'BELT', 'size': 'M', 'description': ' LEATHER BELT FOR MAN', 'availability': True, 'price': 350000.0, 'quantity': 20, 'photography': 'www.catalog.com/belt11.png'})
-
-get=requests.delete(hostUser+'/all')
-print(get.status_code)
-get=requests.delete(hostClothe+'/all')
+get=requests.delete(host+'api/order/all')
 print(get.status_code)
 
-get=requests.get(hostUser+'/all')
-print(get.content)
-get=requests.get(hostClothe+'/all')
-print(get.content)
+get=requests.get(host+'api/user/all')
+print(get.content.decode())
+get=requests.get(host+'api/clothe/all')
+print(get.content.decode())
+get=requests.get(host+'api/order/all')
+print(get.content.decode())
