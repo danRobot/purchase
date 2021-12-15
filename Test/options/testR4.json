@@ -8,5 +8,6 @@
     "g":{"method":"POST","endpoint":"api/order/new","check":"api/order/all"},
     "h":{"method":"POST","endpoint":"api/order/new","check":"api/order/all"},
     "i":{"method":"GET","endpoint":"api/order/salesman/6","check":"api/order/all"},
-    "j":{"method":"GET","endpoint":"api/order/state/Pendiente/6","check":"api/order/all"}
+    "j":{"method":"GET","endpoint":"api/order/state/Pendiente/6","check":"api/order/all"},
+    "l":{"method":"GET","endpoint":"api/order/date/2021-11-15/6","check":"api/order/all"}
 }

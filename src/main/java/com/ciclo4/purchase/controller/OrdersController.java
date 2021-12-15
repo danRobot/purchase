@@ -8,6 +8,7 @@ import com.ciclo4.purchase.model.Orders;
 import com.ciclo4.purchase.service.OrdersService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -54,7 +55,10 @@ public class OrdersController {
         return servicio.getOrdersBySalesman(id);
     }
     @GetMapping("/date/{date}/{id}")
-    public List<Orders> getOrderbySalesman(@PathVariable Date date,@PathVariable Integer id){
+    public List<Orders> getOrderbySalesman(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date date,@PathVariable Integer id){
+        System.out.println("AAAAAAAAAAA");
+        System.out.println(date);
+        System.out.println("AAAAAAAAAAA");
         return servicio.getOrdersByDate(date, id);
     }
     @GetMapping("/state/{state}/{id}")

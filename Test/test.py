@@ -31,29 +31,29 @@ import string
 
 req={"GET":requests.get,"POST":requests.post,"PUT":requests.put,"DELETE":requests.delete}
 
-for step in(string.ascii_letters[:10]):
+for step in(string.ascii_letters):
     try:
         method=options[step]['method']
+        endpoint=options[step]['endpoint']
+        check=options[step]['check']
+        send_data=cases.pop(0)
+        expected=cases.pop(0)
+        result=req[method](url=host+endpoint,json=send_data)
+        if(method!="GET"):
+            result=req["GET"](url=host+check)
+        try:
+            result=result.json()
+            if(result==expected):
+                print("TEST PASS")
+            else:
+                print(endpoint)
+                print('DATA',result)
+                print('expected',expected)
+        except:
+            print(result)
+        #wait=input("siguiente?")
     except:
-        break
-    endpoint=options[step]['endpoint']
-    check=options[step]['check']
-    send_data=cases.pop(0)
-    expected=cases.pop(0)
-    result=req[method](url=host+endpoint,json=send_data)
-    if(method!="GET"):
-        result=req["GET"](url=host+check)
-    try:
-        result=result.json()
-        if(result==expected):
-            print("TEST PASS")
-        else:
-            print(endpoint)
-            print('DATA',result)
-            print('expected',expected)
-    except:
-        print(result)
-    #wait=input("siguiente?")
+        pass
 
 if(args.limpiar=="si"):
     get=requests.delete(host+'api/user/all')
