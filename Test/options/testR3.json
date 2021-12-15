@@ -8,5 +8,7 @@
     "g":{"method":"POST","endpoint":"api/order/new","check":"api/order/all"},
     "h":{"method":"POST","endpoint":"api/order/new","check":"api/order/all"},
     "i":{"method":"GET","endpoint":"api/order/zona/ZONA 1","check":"api/order/all"},
-    "j":{"method":"GET","endpoint":"api/order/1","check":"api/order/all"}
+    "j":{"method":"GET","endpoint":"api/order/1","check":"api/order/all"},
+    "k":{"method":"GET","endpoint":"api/clothe/AP-903","check":"api/clothe/all"},
+    "l":{"method":"PUT","endpoint":"api/order/update","check":"api/order/all"}
 }

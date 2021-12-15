@@ -44,7 +44,7 @@ for step in(string.ascii_letters):
         try:
             result=result.json()
             if(result==expected):
-                print("TEST PASS")
+                print(step+": TEST PASS")
             else:
                 print(endpoint)
                 print('DATA',result)
