@@ -39,7 +39,10 @@ public class ClothesController {
     public List<Clothes> demo2(){
         return servicio.listAllClothes();
     }
-
+    @GetMapping("/{reference}")
+    public Optional<Clothes> reference(@PathVariable String reference){
+        return servicio.getByReference(reference);
+    }
     @GetMapping("/price/{price}")
     public List<Clothes> price(@PathVariable Integer price){
         return servicio.getByPrice(price);

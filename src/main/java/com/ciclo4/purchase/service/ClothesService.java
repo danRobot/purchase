@@ -62,4 +62,8 @@ public class ClothesService {
     public void deleteAll(){
         repositorio.deleteAll();;
     }
+
+    public Optional<Clothes> getByReference(String reference) {
+        return repositorio.getClothe(reference);
+    }
 }
